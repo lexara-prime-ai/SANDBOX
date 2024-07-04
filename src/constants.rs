@@ -1,1 +1,0 @@
-const URL: &str = "http://httpbin.org/post";
