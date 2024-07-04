@@ -30,6 +30,9 @@ mod ffi {
         include!("app/include/blobstore.h");
         type BlobstoreClient;
 
+        fn tag(&self, blobid: u64, tag: &str);
+        fn metadata(&self, blobid: u64) -> BlobMetadata;
+
         fn new_blobstore_client() -> UniquePtr<BlobstoreClient>;
         fn put(&self, parts: &mut MultiBuf) -> u64;
     }
@@ -44,5 +47,8 @@ fn main() {
     let blobid = client.put(&mut buf);
     println!("blobid = {}", blobid);
 
-    client.
+    client.tag(blobid, "rust");
+
+    let metadata = client.metadata(blobid);
+    println!("tags = {:?}", metadata.tags);
 }
