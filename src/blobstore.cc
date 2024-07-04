@@ -4,6 +4,7 @@
 #include "app/src/main.rs.h"
 #include <functional>
 #include <string>
+#include <iostream>
 
 BlobstoreClient::BlobstoreClient() {}
 

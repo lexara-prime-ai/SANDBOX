@@ -15,6 +15,11 @@ pub fn next_chunk(buf: &mut MultiBuf) -> &[u8] {
 
 #[cxx::bridge]
 mod ffi {
+    struct BlobMetadata {
+        size: usize,
+        tags: Vec<String>,
+    }
+
     extern "Rust" {
         type MultiBuf;
 
@@ -34,8 +39,10 @@ fn main() {
     let client = ffi::new_blobstore_client();
 
     // Upload a blob.
-    let chunks = vec![b"fearless".to_vec(), b"concurrency".to_vec()];
+    let chunks = vec![b"Sad".to_vec(), b"noises".to_vec()];
     let mut buf = MultiBuf { chunks, pos: 0 };
     let blobid = client.put(&mut buf);
     println!("blobid = {}", blobid);
+
+    client.
 }
