@@ -5,7 +5,6 @@ using namespace std;
 
 int main()
 {
-    printf("Rust interop incoming!");
-    printf("\n");
+    printf("Compilation successful!");
     std::cin.get();
 }

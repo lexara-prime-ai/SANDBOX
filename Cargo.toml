@@ -6,3 +6,6 @@ edition = "2021"
 [dependencies]
 cxx = "1.0.124"
 reqwest = "0.12.5"
+
+[build-dependencies]
+cxx-build = "1.0.124"
